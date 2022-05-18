@@ -22,8 +22,14 @@ const eventListeners = () => {
     e.preventDefault();
     const artistValue = document.querySelector('#artistInput').value;
     const songValue = document.querySelector('#songInput').value;
+    const notFound = 'Song not found';
     getLyrics(artistValue, songValue).then((response) => {
-      renderToDom('#lyricsDiv', response.lyrics);
+      if (response.lyrics) {
+        renderToDom('#lyricsDiv', response.lyrics);
+        // not working at the moment
+      } else if (!response.lyrics) {
+        renderToDom('#lyricsDiv', notFound);
+      }
     });
   });
 };
