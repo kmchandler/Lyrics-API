@@ -13,11 +13,11 @@ const getLyrics = (artist, song) => new Promise((resolve, reject) => {
 });
 
 // UI PRESENTATION (HTML ON THE DOM)
-const lyricsOnDom = (artist, song) => {
-  getLyrics(artist, song).then((response) => {
-    document.querySelector('#lyricsDiv').innerHTML = response.lyrics;
-  });
-};
+// const lyricsOnDom = (artist, song) => {
+//   getLyrics(artist, song).then((response) => {
+//     document.querySelector('#lyricsDiv').innerHTML = response.lyrics;
+//   });
+// };
 
 const renderToDom = (divId, textToRender) => {
   const selectedElement = document.querySelector(divId);
@@ -27,17 +27,21 @@ const renderToDom = (divId, textToRender) => {
 const eventListeners = () => {
   const artistValue = document.querySelector('#artistInput').value;
   const songValue = document.querySelector('#songInput').value;
-  document.querySelector('#lyricForm').addEventListener('submit', lyricsOnDom(artistValue, songValue));
-  console.warn(lyricsOnDom(artistValue, songValue));
+  document.querySelector('#lyricForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    getLyrics(artistValue, songValue).then((response) => {
+      renderToDom('#lyricsDiv', response.lyrics);
+    });
+  });
 };
 
 const form = `
   <form id='lyricForm' type='submit'>
     <div class='mb-3'>
       <label for='artistInput' class='form-label'>Artist Name</label>
-      <input value='artist' type='text' class='form-control' id='artistInput' placeholder='Artist / Band Name'>
+      <input type='text' class='form-control' id='artistInput' placeholder='Artist / Band Name'>
       <label for='songInput' class='form-label'>Song Title</label>
-      <input value='song' type='text' class='form-control' id='songInput' placeholder='Title'>
+      <input type='text' class='form-control' id='songInput' placeholder='Title'>
     </div>
     <button id='submitButton' type='submit' class='btn btn-primary'>Submit</button>
   </form>`;
