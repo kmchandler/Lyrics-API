@@ -3,8 +3,10 @@
 
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-image: url('https://64.media.tumblr.com/2a85f885b4436228816cd7ab352c7e79/tumblr_n7d487fT6u1r6xm5co1_640.gifv#https://64.media.tumblr.com/2a85f885b4436228816cd7ab352c7e79/tumblr_n7d487fT6u1r6xm5co1_500.gifv');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: black;
   text-align: center;
   margin-top: 100px;
   display: flex;
@@ -13,8 +15,12 @@ body {
 
 #lyricsDiv {
  text-align: center;
- margin: 5% 20% 5% 20%;
+ margin: 2.5% 20% 2.5% 20%;
+ padding: 2%;
+ border-radius: 6px;
  text-align: justify;
+ background-color: rgba(225, 16, 240, 0.7);
+ color: white;
 }
 
 #filterInput{
@@ -22,13 +28,45 @@ body {
   flex-flow: column wrap;
   align-items: center;
   justify-content: center;
+  color: #FF10F0;
 }
 
 #submitButton {
   align-items: center;
   justify-content: center;
+  background-color: transparent;
+  text-shadow: 0 5px 15px rgba(96, 250, 254, .6);
+  border: #60fafe;
+  border-style: solid;
+  color: #60fafe;
+  margin-top: 2%;
+  box-shadow: 0 5px 15px rgba(96, 250, 254, .6);
+  transition: all 0.2s ease-in-out;
+}
+
+#submitButton:hover {
+  background-color: transparent;
+  border: #FFC300;
+  border-style: solid;
+  color: #FFC300;
+  text-shadow: 0 5px 15px rgba(255, 195, 0, .6);
+  box-shadow: 0 5px 15px rgba(255, 195, 0, .6);
 }
 
 .form-control {
   text-align: center;
+  color: #FF10F0;
+}
+
+input, select, textarea {
+  color: #FF10F0; 
+};
+
+input::placeholder {
+  color: #FF10F0; 
+};
+
+#headerTxt {
+  color: white;
+  text-shadow: 0 5px 15px rgba(225, 16, 240, 0.7);
 }

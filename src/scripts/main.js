@@ -12,13 +12,6 @@ const getLyrics = (artist, song) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-// UI PRESENTATION (HTML ON THE DOM)
-// const lyricsOnDom = (artist, song) => {
-//   getLyrics(artist, song).then((response) => {
-//     document.querySelector('#lyricsDiv').innerHTML = response.lyrics;
-//   });
-// };
-
 const renderToDom = (divId, textToRender) => {
   const selectedElement = document.querySelector(divId);
   selectedElement.innerHTML = textToRender;
@@ -43,7 +36,8 @@ const form = `
       <p></p>
       <input type='text' class='form-control' id='songInput' placeholder='Title'>
     </div>
-    <button id='submitButton' type='submit' class='btn btn-primary'>Submit</button>
+    <p></p>
+    <button id='submitButton' type='submit' class='btn btn-primary'>SEARCH</button>
   </form>`;
 
 const startApp = () => {
