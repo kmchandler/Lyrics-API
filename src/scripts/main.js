@@ -25,10 +25,10 @@ const renderToDom = (divId, textToRender) => {
 };
 
 const eventListeners = () => {
-  const artistValue = document.querySelector('#artistInput').value;
-  const songValue = document.querySelector('#songInput').value;
   document.querySelector('#lyricForm').addEventListener('submit', (e) => {
     e.preventDefault();
+    const artistValue = document.querySelector('#artistInput').value;
+    const songValue = document.querySelector('#songInput').value;
     getLyrics(artistValue, songValue).then((response) => {
       renderToDom('#lyricsDiv', response.lyrics);
     });
@@ -38,9 +38,9 @@ const eventListeners = () => {
 const form = `
   <form id='lyricForm' type='submit'>
     <div class='mb-3'>
-      <label for='artistInput' class='form-label'>Artist Name</label>
+      <p></p>
       <input type='text' class='form-control' id='artistInput' placeholder='Artist / Band Name'>
-      <label for='songInput' class='form-label'>Song Title</label>
+      <p></p>
       <input type='text' class='form-control' id='songInput' placeholder='Title'>
     </div>
     <button id='submitButton' type='submit' class='btn btn-primary'>Submit</button>
